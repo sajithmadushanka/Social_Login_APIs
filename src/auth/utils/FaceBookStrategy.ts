@@ -1,6 +1,7 @@
 import { PassportStrategy } from "@nestjs/passport";
 import { AuthService } from "../auth.service";
-import { Strategy } from "passport-google-oauth20";
+import { Strategy } from 'passport-facebook';
+
 
 
 export class FaceBookStrategy extends PassportStrategy(Strategy, 'facebook') {
@@ -19,5 +20,6 @@ export class FaceBookStrategy extends PassportStrategy(Strategy, 'facebook') {
     async validate(accessToken: string, refreshToken: string, profile: any, done: CallableFunction) {
         const user = await this.authService.facebookLogin(profile);
         done(null, user);
+        console.log('user', user)
     }
 }

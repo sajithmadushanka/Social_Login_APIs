@@ -4,10 +4,11 @@ import { AuthService } from './auth.service';
 import { GoogleStrategy } from './utils/GoogleStrategy';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { SessionSerializer } from './utils/Serializer';
+import { FaceBookStrategy } from './utils/FaceBookStrategy';
 
 @Module({
   controllers: [AuthController],
-  providers: [ AuthService,GoogleStrategy, PrismaService,SessionSerializer ],
+  providers: [ AuthService,GoogleStrategy, PrismaService,SessionSerializer,FaceBookStrategy ],
   
 })
 export class AuthModule {}
